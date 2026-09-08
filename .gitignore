@@ -1,0 +1,13 @@
+# Build output
+target/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Local attachment binaries
+uploads/
+
+# Project design documents are kept local and are not published.
+docs/
