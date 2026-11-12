@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrustDesk</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">TrustDesk <span class="brand-sub">support operations</span></div>
+    <nav class="tabs" aria-label="Views">
+      <button class="tab active" data-view="tickets" type="button">Tickets</button>
+      <button class="tab" data-view="evals" type="button">Evaluations</button>
+    </nav>
+    <form id="token-form" class="token-form" autocomplete="off">
+      <label for="token-input">Demo token</label>
+      <input id="token-input" type="password" placeholder="Bearer token" spellcheck="false">
+      <button type="submit">Save</button>
+    </form>
+  </header>
+
+  <main>
+    <section id="view-tickets" class="view">
+      <aside class="queue">
+        <div class="queue-head">
+          <h2>Ticket queue</h2>
+          <button id="refresh-tickets" type="button" class="ghost">Refresh</button>
+        </div>
+        <ul id="ticket-list" class="ticket-list"></ul>
+      </aside>
+      <div id="ticket-detail" class="detail">
+        <p class="empty">Select a ticket from the queue.</p>
+      </div>
+    </section>
+
+    <section id="view-evals" class="view hidden">
+      <div class="eval-head">
+        <h2>Evaluations</h2>
+        <p class="muted">Runs every case in <code>eval_cases.jsonl</code> through the real triage and draft workflows.</p>
+        <button id="run-eval" type="button">Run evaluation (all cases)</button>
+      </div>
+      <div id="eval-detail"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
